@@ -251,7 +251,7 @@ var IDBStorage = function () {
             var _this7 = this;
 
             return new Promise(function (resolve, reject) {
-                var req = window.indexedDB.deleteDatabase(_this7.name);
+                var req = indexedDB.deleteDatabase(_this7.name);
                 req.onsuccess = function () {
                     return resolve();
                 };
@@ -285,7 +285,7 @@ exports.default = IDBStorage;
 var openIDBConnection = function openIDBConnection(name, storeName, version) {
     return new Promise(function (resolve, reject) {
         try {
-            var req = window.indexedDB.open(name, version);
+            var req = indexedDB.open(name, version);
             req.onupgradeneeded = function () {
                 var db = req.result;
                 db.onerror = function (ev) {
