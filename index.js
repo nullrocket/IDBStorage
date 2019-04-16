@@ -177,7 +177,7 @@ export default class IDBStorage {
 
     deleteDatabase() {
         return new Promise((resolve, reject) => {
-            const req = window.indexedDB.deleteDatabase(this.name)
+            const req = indexedDB.deleteDatabase(this.name)
             req.onsuccess = () => resolve()
             req.onerror = ev => reject(ev)
         })
@@ -198,7 +198,7 @@ export default class IDBStorage {
 const openIDBConnection = (name, storeName, version) => {
     return new Promise((resolve, reject) => {
         try {
-            const req = window.indexedDB.open(name, version)
+            const req = indexedDB.open(name, version)
             req.onupgradeneeded = () => {
                 const db = req.result
                 db.onerror = ev => reject(ev)
